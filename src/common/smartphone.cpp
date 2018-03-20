@@ -1,14 +1,16 @@
+// Copyright 2018 BSc ViBOT
+
 #include "smartphone.hpp"
 
-Smartphone::Smartphone(){
-	os = "";
+Smartphone::Smartphone() {
+    os = "";
 }
 
-void Smartphone::set_os(std::string val){
-	os = val;
+void Smartphone::set_os(std::string val) {
+    os = val;
 }
 
-std::string Smartphone::get_os(){
-	return os;
+std::string Smartphone::get_os() {
+    return os;
 }
 

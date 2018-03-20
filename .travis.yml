@@ -14,6 +14,8 @@ language: cpp
     #    - pip install --user cpp-coveralls
 
 install:
+    - sudo pip install cpplint
+    - cpplint --recursive src
     - cd /usr/src/gtest
     - sudo cmake CMakeLists.txt -DCOVERAGE=1
     - sudo make
@@ -24,7 +26,7 @@ install:
     - cmake -DCMAKE_BUILD_TYPE=Debug ../src && make -j && make main_coverage
     - cd ../bin
 
-script: 
+script:
     - ./test_all
 
 after_success:

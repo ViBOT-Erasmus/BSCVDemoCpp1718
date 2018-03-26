@@ -1,9 +1,8 @@
-// "Copyright 2018 Sadiq
+//  "Copyright [year] <Copyright Owner>
 
+#include "../common/3Dpoint.h"  // NOLINT 
 
-#include "3Dpoint.hpp"
-
-Geometry::Geometry(float x_coordinate, float y_coordinate, float z_coordinate) {
+Geometry(float x_coordinate, float y_coordinate, float z_coordinate) {
     x = x_coordinate;
     y = y_coordinate;
     z = z_coordinate;

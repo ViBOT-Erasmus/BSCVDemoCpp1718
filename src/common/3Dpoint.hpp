@@ -1,4 +1,4 @@
-//  Copyright 2018 Sadiq
+// Bismark Ohemeng
 
 #ifndef SRC_COMMON_3DPOINT_HPP_
 #define SRC_COMMON_3DPOINT_HPP_

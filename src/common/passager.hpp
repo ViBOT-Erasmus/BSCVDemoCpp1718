@@ -3,15 +3,17 @@
 #ifndef SRC_COMMON_PASSAGER_HPP_
 #define SRC_COMMON_PASSAGER_HPP_
 
+#include <iostream>
 #include <string>
 
 /// class Passagerwhich data for a passager
 // only a constructor and data (private)
-class Passager {
- public:
-     /// Constructor with in parameter all data which should affected to the
-     // menber variables
-     Passager(bool,
+class Passager
+{
+public:
+    /// Constructor with in parameter all data which should affected to the
+    // menber variables
+    Passager(bool,
              int,
              bool,
              int,
@@ -26,13 +28,13 @@ class Passager {
              std::string,
              bool,
              bool);
-// private:
-    bool survived;  ///< survived or not
-    int pclass;  ///< range class
-    bool sex;  ///< male true, female 0
+    // private:
+    bool survived; ///< survived or not
+    int pclass;    ///< range class
+    bool sex;      ///< male true, female 0
     int age;
-    int slbsp;  ///< see owner for wahit for
-    int parch;  ///< see owner for wahit for
+    int slbsp; ///< see owner for wahit for
+    int parch; ///< see owner for wahit for
     int fare;
     std::string embarked;
     std::string type_class;
@@ -42,6 +44,7 @@ class Passager {
     std::string embark_town;
     bool alive;
     bool alone;
-};
-#endif  //  SRC_COMMON_PASSAGER_HPP_
 
+    friend std::ostream &operator<<(std::ostream &, const Passager &);
+};
+#endif //  SRC_COMMON_PASSAGER_HPP_

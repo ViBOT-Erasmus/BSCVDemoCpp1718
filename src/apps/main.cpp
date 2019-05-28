@@ -14,45 +14,63 @@
 #include "../common/process_passager.hpp"
 #include "../common/polymorphism.hpp"
 #include "../common/functor.hpp"
+#include <common/passager.hpp>
+#include <common/passager_reader.hpp>
 
-int main() {
+int main()
+{
 
-//  demobscv::polymorph::Car c(1000, 4);
-//  demobscv::polymorph::Moto m(1000, 250);
-//  
-//  c.display();
-//  m.display();
-//  
-//  introduice(c);
-//  introduice(m);
-//  
-//  demobscv::polymorph::Vehicule * ptr_v(0);
-//   ptr_v = & c;
-//   
-//   std::cout << "Nb wheels of ptr_v : " << ptr_v->nb_wheels() << std::endl;
-//      std::string f_name = "../data/titanic.csv";
-//      PassagerReader my_passager_reader(f_name);
-//      ProcessPassager my_process_passager(my_passager_reader.liste_passager);
-//      std::cout << "Age moyenne des passagers : "
-//          << my_process_passager.p_mean_age() << "\n";
-//      StatSurvived stat_survived = my_process_passager.p_survived();
-//      std::cout << "Nombre de survivant : "
-//          << stat_survived.nb_survived << "\n";
-//      std::cout << "Pourcentage de survivant : "
-//          << stat_survived.percentage_survived << "\n";
-//      std::map<std::string, int> histo = my_process_passager.p_hist_emabarked();
-//      std::string clef = "";
-//      for (auto const & x : histo) {
-//          if (x.first == "") {
-//              clef = "No information";
-//          } else {
-//              clef = x.first;
-//          }
-//          std::cout << clef
-//              << ":"
-//              << x.second
-//              << "\n";
-//      }  //  for all element of the map
+    std::string f_name = "../data/titanic.csv";
+    PassagerReader my_passager_reader(f_name);
+
+    for (Passager const &my_passenger : my_passager_reader.liste_passager)
+    {
+        std::cout << my_passenger << std::endl;
+    }
+
+    my_passager_reader.sort("age");
+
+    for (Passager const &my_passenger : my_passager_reader.liste_passager)
+    {
+        std::cout << my_passenger << std::endl;
+    }
+
+    //  demobscv::polymorph::Car c(1000, 4);
+    //  demobscv::polymorph::Moto m(1000, 250);
+    //
+    //  c.display();
+    //  m.display();
+    //
+    //  introduice(c);
+    //  introduice(m);
+    //
+    //  demobscv::polymorph::Vehicule * ptr_v(0);
+    //   ptr_v = & c;
+    //
+    //   std::cout << "Nb wheels of ptr_v : " << ptr_v->nb_wheels() << std::endl;
+    //      std::string f_name = "../data/titanic.csv";
+    //      PassagerReader my_passager_reader(f_name);
+    //      ProcessPassager my_process_passager(my_passager_reader.liste_passager);
+    //      std::cout << "Age moyenne des passagers : "
+    //          << my_process_passager.p_mean_age() << "\n";
+    //      StatSurvived stat_survived = my_process_passager.p_survived();
+    //      std::cout << "Nombre de survivant : "
+    //          << stat_survived.nb_survived << "\n";
+    //      std::cout << "Pourcentage de survivant : "
+    //          << stat_survived.percentage_survived << "\n";
+    //      std::map<std::string, int> histo = my_process_passager.p_hist_emabarked();
+    //      std::string clef = "";
+    //      for (auto const & x : histo) {
+    //          if (x.first == "") {
+    //              clef = "No information";
+    //          } else {
+    //              clef = x.first;
+    //          }
+    //          std::cout << clef
+    //              << ":"
+    //              << x.second
+    //              << "\n";
+    //      }  //  for all element of the map
 
     // Point my_point(12, 0);
     // float ar = 1.27;
@@ -119,7 +137,7 @@ int main() {
 	std::cout << "imag : "<< my_complex.get_imag()<< "\n";
 
 	// custon corstructor
-	
+
 	float c = 2.9;
 	float d = 1.34;
 
@@ -137,7 +155,7 @@ int main() {
 
 	float m = my_complex2.get_mod();
 	std::cout << "Modulus of my_compex2 obj : " << m << "\n";
-	
+
 	float n = my_complex2.get_arg();
 	std::cout << "Arg of my_compex2 obj : " << n << "\n";*/
     return 0;

@@ -63,6 +63,51 @@ TEST(TestPassagerReader, TestSort)
     my_passager_reader.sort("age");
     ASSERT_EQ(first.age, -1);
     ASSERT_EQ(last.age, 80);
+    my_passager_reader.sort("survived");
+    ASSERT_EQ(first.survived, false);
+    ASSERT_EQ(last.survived, true);
+    my_passager_reader.sort("pclass");
+    ASSERT_EQ(first.pclass, 1);
+    ASSERT_EQ(last.pclass, 3);
+    my_passager_reader.sort("sex");
+    ASSERT_EQ(first.sex, false);
+    ASSERT_EQ(last.sex, true);
+    my_passager_reader.sort("age");
+    ASSERT_EQ(first.age, -1);
+    ASSERT_EQ(last.age, 80);
+    my_passager_reader.sort("slbsp");
+    ASSERT_EQ(first.slbsp, 0);
+    ASSERT_EQ(last.slbsp, 8);
+    my_passager_reader.sort("parch");
+    ASSERT_EQ(first.parch, 0);
+    ASSERT_EQ(last.parch, 6);
+    my_passager_reader.sort("fare");
+    ASSERT_EQ(first.fare, 0);
+    ASSERT_EQ(last.fare, 512);
+    my_passager_reader.sort("embarked");
+    ASSERT_EQ(first.embarked, "");
+    ASSERT_EQ(last.embarked, "S");
+    my_passager_reader.sort("type_class");
+    ASSERT_EQ(first.type_class, "");
+    ASSERT_EQ(last.type_class, "Third");
+    my_passager_reader.sort("who");
+    ASSERT_EQ(first.who, "");
+    ASSERT_EQ(last.who, "woman");
+    my_passager_reader.sort("adult_male");
+    ASSERT_EQ(first.adult_male, false);
+    ASSERT_EQ(last.adult_male, true);
+    my_passager_reader.sort("deck");
+    ASSERT_EQ(first.deck, "");
+    ASSERT_EQ(last.deck, "G");
+    my_passager_reader.sort("embark_town");
+    ASSERT_EQ(first.embark_town, "");
+    ASSERT_EQ(last.embark_town, "Southampton");
+    my_passager_reader.sort("alive");
+    ASSERT_EQ(first.alive, false);
+    ASSERT_EQ(last.alive, true);
+    my_passager_reader.sort("alone");
+    ASSERT_EQ(first.alone, false);
+    ASSERT_EQ(last.alone, true);
 }
 
 TEST(TestPassager, TestStreamOut)
@@ -71,13 +116,13 @@ TEST(TestPassager, TestStreamOut)
     PassagerReader my_passager_reader(f_name);
     Passager &first = my_passager_reader.liste_passager.front();
     Passager &last = my_passager_reader.liste_passager.back();
-    std::string output = "survived : false, pclass : 3, sex : true, age : 32, slbsp : 0, parch : 0, fare : 7, embarked : , type_class : , who : , adult_male : false, deck : , embark_town : , alive : false, alone : true";
+    std::string output = "survived : false, pclass : 3, sex : true, age : 32, slbsp : 0, parch : 0, fare : 7, embarked : , type_class : , who : , adult_male : true, deck : , embark_town : , alive : false, alone : true";
     std::stringstream out;
     out << last;
     ASSERT_STREQ(out.str().c_str(), output.c_str());
 
     out.str(std::string());
-    output = "survived : false, pclass : 3, sex : true, age : 22, slbsp : 1, parch : 0, fare : 7, embarked : S, type_class : Third, who : man, adult_male : false, deck : , embark_town : Southampton, alive : false, alone : false";
+    output = "survived : false, pclass : 3, sex : true, age : 22, slbsp : 1, parch : 0, fare : 7, embarked : S, type_class : Third, who : man, adult_male : true, deck : , embark_town : Southampton, alive : false, alone : false";
     out << first;
     ASSERT_STREQ(out.str().c_str(), output.c_str());
 }

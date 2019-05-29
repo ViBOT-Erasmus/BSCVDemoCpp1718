@@ -97,7 +97,7 @@ void PassagerReader::parse_line(std::string line)
             count++;
             break;
         case 10:
-            if (cell == "1")
+            if (cell == "True")
                 adult_male = true;
             else
                 adult_male = false;
@@ -199,6 +199,6 @@ void PassagerReader::sort(const std::string &member)
                   {
                       return a.alone < b.alone;
                   }
-                  return false;
+                  return true;
               });
 }

@@ -1,5 +1,7 @@
 //  Copyright Cedric Lemaitre 2018
 #include <algorithm>
+#include <iostream>
+#include <fstream>
 
 #include "passager_reader.hpp"
 
@@ -201,4 +203,35 @@ void PassagerReader::sort(const std::string &member)
                   }
                   return true;
               });
+}
+
+void PassagerReader::compute_age_histogram()
+{
+    for (std::vector<int>::size_type i = 0, size = liste_passager.size(); i < size; i++)
+    {
+        if (!(liste_passager[i].age == -1))
+        {
+            if (age_histogram.find(liste_passager[i].age) == age_histogram.end())
+                age_histogram[liste_passager[i].age] = 1;
+            else
+                age_histogram[liste_passager[i].age]++;
+        }
+    }
+}
+
+void PassagerReader::export_age_histogram(const std::string &export_file)
+{
+    std::ofstream outfile(export_file);
+    std::map<unsigned int, unsigned int>::iterator it = age_histogram.begin();
+
+    if (outfile.good())
+        outfile << "age,frequency" << std::endl;
+
+    while (outfile.good() && it != age_histogram.end())
+    {
+        outfile << it->first << "," << it->second << std::endl;
+        it++;
+    }
+
+    outfile.close();
 }

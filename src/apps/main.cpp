@@ -35,6 +35,9 @@ int main()
         std::cout << my_passenger << std::endl;
     }
 
+    my_passager_reader.compute_age_histogram();
+    my_passager_reader.export_age_histogram("../data/age_hist.csv");
+
     // my_passager_reader.sort("survived");
     // std::cout << "survived" << std::endl;
     // std::cout << my_passager_reader.liste_passager.front() << std::endl;

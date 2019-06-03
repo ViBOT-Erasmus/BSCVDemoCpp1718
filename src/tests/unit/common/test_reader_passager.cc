@@ -62,7 +62,25 @@ TEST(TestPassagerReader, TestSort)
     ASSERT_EQ(last.age, 32);
     my_passager_reader.sort("age");
     ASSERT_EQ(first.age, -1);
+    ASSERT_EQ(first.alone, true);
+    ASSERT_EQ(first.adult_male, true);
+    ASSERT_EQ(first.sex, true);
+    ASSERT_EQ(first.fare, 30);
+    ASSERT_EQ(first.embark_town, "Southampton");
+    ASSERT_EQ(first.type_class, "First");
+    ASSERT_EQ(first.survived, true);
+    ASSERT_EQ(first.deck, "C");
+
     ASSERT_EQ(last.age, 80);
+    ASSERT_EQ(last.survived, true);
+    ASSERT_EQ(last.alone, true);
+    ASSERT_EQ(last.adult_male, true);
+    ASSERT_EQ(last.type_class, "First");
+    ASSERT_EQ(last.sex, true);
+    ASSERT_EQ(last.fare, 30);
+    ASSERT_EQ(last.embark_town, "Southampton");
+    ASSERT_EQ(last.deck, "A");
+
     my_passager_reader.sort("survived");
     ASSERT_EQ(first.survived, false);
     ASSERT_EQ(last.survived, true);

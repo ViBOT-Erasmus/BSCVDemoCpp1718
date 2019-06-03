@@ -144,3 +144,15 @@ TEST(TestPassager, TestStreamOut)
     out << first;
     ASSERT_STREQ(out.str().c_str(), output.c_str());
 }
+
+TEST(TestPassager, TestHistogram)
+{
+    std::string f_name = "../data/titanic.csv";
+    PassagerReader my_passager_reader(f_name);
+    my_passager_reader.compute_age_histogram();
+
+    ASSERT_EQ(my_passager_reader.age_histogram[0], 7);
+    ASSERT_EQ(my_passager_reader.age_histogram[10], 2);
+    ASSERT_EQ(my_passager_reader.age_histogram[50], 10);
+    ASSERT_EQ(my_passager_reader.age_histogram[80], 1);
+}

@@ -14,9 +14,6 @@
 ///   titanic.sv
 class PassagerReader
 {
-private:
-    std::map<unsigned int, unsigned int> age_histogram;
-
 public:
     explicit PassagerReader(const std::string &);
     //  private:
@@ -25,6 +22,7 @@ public:
     int nb_col_csv;
     std::vector<Passager> liste_passager;
     void sort(const std::string &);
+    std::map<unsigned int, unsigned int> age_histogram;
     void compute_age_histogram();
     void export_age_histogram(const std::string &);
 };
